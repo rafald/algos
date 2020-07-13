@@ -2,7 +2,9 @@
 #include <iostream>
 
 int main() {
-  std::unordered_multimap< vertice_id, vertice_id> adj = { 
+  //std::unordered_multimap< int, int> adj = { 
+  std::multimap< int, int> adj = { 
+    {0,7},
     {1,6}, 
     {2,5}, 
     {3,5}, 
@@ -11,11 +13,13 @@ int main() {
     {4,7}, 
     {6,7}, 
     {7,8}, 
-    {7,9}, 
+    {9,7},
     };
-  std::vector<vertice_id> r = topo_sort(adj);
+  auto r = topo_sort(adj);
 
+  std::cout << "\n";
   for(auto v : r)
      std::cout << v << ", ";
+  std::cout << "\nDONE";
   return 0;
 }

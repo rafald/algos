@@ -2,26 +2,38 @@
 #include <vector>
 #include <set>
 #include <unordered_map>
+#include <map> //?
 #include <algorithm>
+#include "boost/graph/adjacency_list.hpp"
 
-using vertice_id = int;
-std::vector<vertice_id> 
-topo_sort(std::unordered_multimap< vertice_id, vertice_id> adj) { // Adjacency List, directed, acyclic
-    std::vector<vertice_id> S;// scan for start nodes - nodes without incomming edges
-    std::set<vertice_id> all_v;
-    std::set<vertice_id> have_parent_v;
-    for( auto p: adj ) {
-        all_v.insert(p.first);
-        all_v.insert(p.second);
-        have_parent_v.insert(p.second);
+// Adjacency List, directed, acyclic
+// continuous ids for nodes starting with 0
+std::vector<int> 
+//topo_sort(std::unordered_multimap< int, int> adj) { 
+topo_sort(std::multimap< int, int> const & adj) { 
+    //find indegrees for each node 
+    std::vector<int> indegrees;
+    for( auto pc: adj ) { // parent/child
+        auto const required_size = std::max(pc.second+1,pc.first+1);
+        if(required_size > indegrees.size() ) indegrees.resize(required_size);
+        ++indegrees[pc.second];
     }
-    std::set_difference (all_v.begin(), all_v.end(), have_parent_v.begin(), have_parent_v.end(), std::back_inserter(S));
-/*
-    std::vector<vertice_id> torder;
-    for(auto s : S) {
-        for (auto e: adj.equal_range(s)) {
 
+    std::vector<int> result;
+    // look for nodes without incoming edges
+    for( auto f = std::find(indegrees.begin(), indegrees.end(), 0); 
+            f!=indegrees.end();  
+            f = std::find(indegrees.begin(), indegrees.end(), 0)) {
+        int v = std::distance(indegrees.begin(), f);
+        result.push_back(v);
+        //auto [fe, le] = adj.equal_range(v);
+        //std::for_each(fe, le, [&](auto e){--indegrees[e.second]; } );
+        for (auto e: boost::make_iterator_range(adj.equal_range(v))) { 
+            --indegrees[e.second];//remove 
         }
-    }*/
-    return S;
+        *f=-1;//we do not remove done nodes - mark as done with -1
+    } 
+    //TODO len != indegrees.size() then cycle
+
+    return result;
 }
