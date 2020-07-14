@@ -13,7 +13,7 @@ set(Boost_USE_STATIC_RUNTIME    OFF)
 #SET (Boost_ADDITIONAL_VERSIONS "1.67" "1.67.0")
 
 include(CTest)
-enable_testing()
+#enable_testing()
 
 # add_executable(algos main.cpp)
 set(SOURCE topo_sort_test.cpp)
@@ -22,8 +22,12 @@ add_executable(${PROJECT_NAME} ${SOURCE})
 find_package(Boost 1.73 REQUIRED COMPONENTS unit_test_framework system) # thread regex 
 if(Boost_FOUND)
   include_directories(${Boost_INCLUDE_DIRS})
-  target_link_libraries(${PROJECT_NAME} ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY} ${Boost_SYSTEM_LIBRARY})
+  target_link_libraries(${PROJECT_NAME} ${Boost_SYSTEM_LIBRARY})
 endif()
+
+add_executable(topo_sort_test ${SOURCE})
+target_link_libraries(topo_sort_test ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY} ${Boost_SYSTEM_LIBRARY})
+add_test(topo_sort_test topo_sort_test)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
