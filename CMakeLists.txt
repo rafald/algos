@@ -3,7 +3,7 @@ project(algos VERSION 0.1.0)
 
 #set(Boost_DEBUG 1)
 
-set(BOOST_ROOT "/media/raf/EXT4STORE/develop/c++/boost_1_73_0") # /stage
+set(BOOST_ROOT "/media/raf/EXT4STORE/develop/c++/boost_1_73_0" CACHE STRING "root of boost source code tree") # /stage
 
 set(Boost_USE_STATIC_LIBS        ON)  # only find static libs
 set(Boost_USE_DEBUG_LIBS         OFF) # ignore debug libs and
