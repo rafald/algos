@@ -31,9 +31,11 @@ topo_sort(std::multimap< int, int> const & adj) {
         for (auto e: boost::make_iterator_range(adj.equal_range(v))) { 
             --indegrees[e.second];//remove 
         }
-        *f=-1;//we do not remove done nodes - mark as done with -1
+        *f=-1;//we do not remove processed nodes but mark as done with -1
     } 
-    //TODO len != indegrees.size() then cycle
+    if( result.size() != indegrees.size()) {
+        return {};
+    }
 
     return result;
 }
