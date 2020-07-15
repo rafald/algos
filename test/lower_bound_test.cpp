@@ -2,7 +2,7 @@
 #include <iostream>
 #include <array>
 
-#include "lower_bound.h"
+#include "algos/lower_bound.h"
 
 template <class T, int N>
 int
