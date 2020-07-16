@@ -13,6 +13,8 @@
 
 #pragma once
 
+// return it to elem which is not less than (i.e. greater or equal to) value, or last if no such element is found.
+//      insert position
 template <class RandomIt, class T>
 RandomIt
 lower_bound(RandomIt f, RandomIt l, T val)
