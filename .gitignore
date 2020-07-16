@@ -4,3 +4,4 @@ run_unconditional_action
 .vscode/tasks.json
 bin/
 install_dir/
+Testing/
