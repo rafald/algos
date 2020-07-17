@@ -6,8 +6,8 @@ project(algos VERSION 0.1.0)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
 
-SET (Boost_ADDITIONAL_VERSIONS "1.67" "1.67.0")
-find_package(Boost 1.72 CONFIG REQUIRED COMPONENTS unit_test_framework) 
+#SET (Boost_ADDITIONAL_VERSIONS "1.67" "1.67.0" "1.71") 
+find_package(Boost 1.71 CONFIG REQUIRED COMPONENTS unit_test_framework) 
 #set(Boost_DEBUG 1)
 include_directories(${Boost_INCLUDE_DIRS})
 
