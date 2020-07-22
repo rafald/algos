@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2.0.0      
+      uses: actions/checkout@v2
 
     - name: Create Build Environment
       run: |
@@ -33,7 +33,7 @@ jobs:
     - name: Configure CMake
       shell: bash # Use a bash shell so we can use the same syntax for environment variable access regardless of the host operating system
       working-directory: ${{runner.workspace}}/build
-      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DHUNTER_STATUS_DEBUG=ON # -S -DCMAKE_PROJECT_INCLUDE_BEFORE:STRING=SetupHunter.cmake
+      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE # -DHUNTER_STATUS_DEBUG=ON # -S -DCMAKE_PROJECT_INCLUDE_BEFORE:STRING=SetupHunter.cmake
 
     - name: Build
       working-directory: ${{runner.workspace}}/build

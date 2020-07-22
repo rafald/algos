@@ -1,5 +1,7 @@
 name: C/C++ CI std
 on: [push]
+env:
+  BUILD_TYPE: Release # Release, Debug, RelWithDebInfo, etc.
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -24,10 +26,10 @@ jobs:
           ${{ matrix.os }}-
     
     - name: configure
-      run: mkdir build && cd build && cmake ..
+      run: mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE=$BUILD_TYPE # -DHUNTER_STATUS_DEBUG
 
     - name: build
-      run: cmake --build build --config Debug
+      run: cmake --build build --config $BUILD_TYPE
 
     - name: test
-      run: cd build && ctest
+      run: cd build && ctest -C $BUILD_TYPE
