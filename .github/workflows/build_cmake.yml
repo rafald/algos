@@ -12,7 +12,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macOS-10.15, windows-latest, ubuntu-latest] #, macOS-latest] #fails beacus of SetupHunter - version not present altough first time build succeeded ???
+        os: [windows-latest, ubuntu-latest] #, macOS-latest] #fails because of SetupHunter - version not present, although first time build succeeded - why ???
 
     steps:
     - name: Checkout
