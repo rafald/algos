@@ -26,8 +26,8 @@ namespace algos { namespace {
   TEST(lowerbound, int_std_array)
   {
     std::array<char,10> data{ "ab" "defghij" }; data[9]='k';
-    EXPECT_EQ(*lower_bound(data.begin(), data.end(), 'd') , 'd');
-    EXPECT_EQ(*lower_bound(data.begin(), data.end(), 'c') , 'd');
+    EXPECT_EQ(*algos::lower_bound(data.begin(), data.end(), 'd') , 'd');
+    EXPECT_EQ(*algos::lower_bound(data.begin(), data.end(), 'c') , 'd');
     //EXPECT_EQ(*algos::lower_bound(data.begin(), data.end(), 'd') , 'd');
     //EXPECT_EQ(*algos::lower_bound(data.begin(), data.end(), 'c') , 'd');
   }
