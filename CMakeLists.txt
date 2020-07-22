@@ -22,6 +22,7 @@ include_directories(.)
 FILE ( GLOB SOURCES  "${PROJECT_SOURCE_DIR}/src/*.cpp" )
  
 #ADD_LIBRARY( algos_lib STATIC "${SOURCES}" )
+
 add_executable(${PROJECT_NAME} "${SOURCES}")
 TARGET_LINK_LIBRARIES ( ${PROJECT_NAME} PRIVATE Boost::unit_test_framework )
 
