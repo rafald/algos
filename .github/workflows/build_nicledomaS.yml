@@ -4,7 +4,11 @@ on: [push]
 
 jobs:
   ubuntu-build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest , macOS-latest] # macOS fails beacus of SetupHunter - version not present altough first time build succeeded ???          
+
     steps:
     - name: Checkout
       uses: actions/checkout@v2.0.0
