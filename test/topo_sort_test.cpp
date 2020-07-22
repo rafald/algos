@@ -21,7 +21,7 @@ BOOST_AUTO_TEST_CASE(test) {
     {9,7},
     };
   auto r = topo_sort(adj);
-  std::vector<int> expected{0, 1, 2, 3, 4, 5, 6, 9, 7, 8,};
+  std::vector<int> expected = {0, 1, 2, 3, 4, 5, 6, 9, 7, 8,};
   BOOST_CHECK_EQUAL_COLLECTIONS(r.begin(),r.end(), expected.begin(),expected.end());
 }
 }
