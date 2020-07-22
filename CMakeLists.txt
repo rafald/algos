@@ -6,6 +6,9 @@ project(algos VERSION 0.1.0)
 #export VERBOSE=1
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
+set(CMAKE_CXX_STANDARD 17) ## 11 or 14 !!
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF) ## on g++ this ensures: -std=c++11 and not -std=gnu++11
 
 #SET (Boost_ADDITIONAL_VERSIONS "1.67" "1.67.0" "1.71") 
 find_package(Boost 1.71 CONFIG REQUIRED COMPONENTS unit_test_framework) 
