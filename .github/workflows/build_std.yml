@@ -31,3 +31,16 @@ jobs:
       run: cmake --build build --config Debug
     - name: test
       run: cd build && ctest
+        
+    - name: Cache Hunter
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-hunter
+      with:
+        # hunteer cache files are stored in `~/.hunter` on Linux/macOS
+        path: ~/.hunter/
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/CMakeLists.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
