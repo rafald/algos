@@ -12,7 +12,7 @@
 */
 
 #pragma once
-
+namespace algos {
 // return it to elem which is not less than (i.e. greater or equal to) value, or last if no such element is found.
 //      insert position
 template <class RandomIt, class T>
@@ -25,4 +25,5 @@ lower_bound(RandomIt f, RandomIt l, T val)
         else l=m;
     }
     return f;
+}
 }

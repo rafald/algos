@@ -12,6 +12,7 @@
 */
 
 #pragma once
-
+namespace algos {
 template< typename T, size_t N >
 inline size_t dim( T (&arr)[N] ) { return N; }
+}

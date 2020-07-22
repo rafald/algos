@@ -8,6 +8,8 @@
 
 namespace
 {
+  using algos::lower_bound;
+  using algos::dim;
   TEST(lowerbound, int_native_array)
   {
     int data[] = {

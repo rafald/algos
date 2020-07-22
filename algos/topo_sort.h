@@ -6,6 +6,7 @@
 #include <algorithm>
 #include "boost/graph/adjacency_list.hpp"
 
+namespace algos {
 // Adjacency List, directed, acyclic
 // continuous ids for nodes starting with 0
 std::vector<int> 
@@ -38,4 +39,5 @@ topo_sort(std::multimap< int, int> const & adj) {
     }
 
     return result;
+}
 }

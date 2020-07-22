@@ -6,6 +6,7 @@
 #include "algos/topo_sort.h"
 
 namespace {
+   using algos::topo_sort;//, algos::dim;
 BOOST_AUTO_TEST_CASE(test) {
   //std::unordered_multimap< int, int> adj = { 
   std::multimap< int, int> adj = { 
