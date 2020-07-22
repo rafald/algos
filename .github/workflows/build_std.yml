@@ -1,17 +1,14 @@
 name: C/C++ CI std
-
 on: [push]
-
 jobs:
   build:
-
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, windows-2016]
     
     steps:
-    - name: Cache Hunter
+    - name: Checkout
       uses: actions/checkout@v2
         
     - name: Cache Hunter
@@ -19,7 +16,6 @@ jobs:
       env:
         cache-name: cache-hunter-std
       with:
-        # hunter cache files are stored in `~/.hunter` on Linux/macOS
         path: ~/.hunter/
         key: ${{ matrix.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/CMakeLists.txt') }}
         restore-keys: |
@@ -29,7 +25,9 @@ jobs:
     
     - name: configure
       run: mkdir build && cd build && cmake ..
+
     - name: build
       run: cmake --build build --config Debug
+
     - name: test
       run: cd build && ctest
