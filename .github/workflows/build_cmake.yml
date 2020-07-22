@@ -28,7 +28,7 @@ jobs:
     - name: Cache Hunter
       uses: actions/cache@v2
       env:
-        cache-name: cache-hunter
+        cache-name: cache-hunter-CMake
       with:
         # hunteer cache files are stored in `~/.hunter` on Linux/macOS
         path: ~/.hunter/
