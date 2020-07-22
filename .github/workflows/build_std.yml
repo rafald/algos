@@ -25,12 +25,6 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: configure
-      run: mkdir build && cd build && cmake ..
-    - name: build
-      run: cmake --build build --config Debug
-    - name: test
-      run: cd build && ctest
         
     - name: Cache Hunter
       uses: actions/cache@v2
@@ -44,3 +38,10 @@ jobs:
           ${{ runner.os }}-build-${{ env.cache-name }}-
           ${{ runner.os }}-build-
           ${{ runner.os }}-
+    
+    - name: configure
+      run: mkdir build && cd build && cmake ..
+    - name: build
+      run: cmake --build build --config Debug
+    - name: test
+      run: cd build && ctest
