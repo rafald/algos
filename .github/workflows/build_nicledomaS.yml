@@ -20,11 +20,11 @@ jobs:
       with:
         # hunteer cache files are stored in `~/.hunter` on Linux/macOS
         path: ~/.hunter/
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/CMakeLists.txt') }}
+        key: ${{ matrix.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/CMakeLists.txt') }}
         restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
+          ${{ matrix.os }}-build-${{ env.cache-name }}-
+          ${{ matrix.os }}-build-
+          ${{ matrix.os }}-
       
     - name: Build project
       uses: nicledomaS/cmake_build_action@v1

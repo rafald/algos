@@ -21,11 +21,11 @@ jobs:
       with:
         # hunter cache files are stored in `~/.hunter` on Linux/macOS
         path: ~/.hunter/
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/CMakeLists.txt') }}
+        key: ${{ matrix.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/CMakeLists.txt') }}
         restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
+          ${{ matrix.os }}-build-${{ env.cache-name }}-
+          ${{ matrix.os }}-build-
+          ${{ matrix.os }}-
     
     - name: configure
       run: mkdir build && cd build && cmake ..
