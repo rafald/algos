@@ -6,10 +6,9 @@
 #include "algos/utils.h" //TODO private header
 #include "algos/lower_bound.h"
 
-namespace
-{
-  using algos::lower_bound;
-  using algos::dim;
+namespace algos { namespace {
+  //using algos::lower_bound;
+  //using algos::dim;
   TEST(lowerbound, int_native_array)
   {
     int data[] = {
@@ -29,5 +28,7 @@ namespace
     std::array<char,10> data{ "ab" "defghij" }; data[9]='k';
     EXPECT_EQ(*lower_bound(data.begin(), data.end(), 'd') , 'd');
     EXPECT_EQ(*lower_bound(data.begin(), data.end(), 'c') , 'd');
+    //EXPECT_EQ(*algos::lower_bound(data.begin(), data.end(), 'd') , 'd');
+    //EXPECT_EQ(*algos::lower_bound(data.begin(), data.end(), 'c') , 'd');
   }
-} // namespace
+}} // namespace
