@@ -26,10 +26,13 @@ jobs:
           ${{ matrix.os }}-
     
     - name: configure
+      shell: bash
       run: mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE=$BUILD_TYPE # -DHUNTER_STATUS_DEBUG
 
     - name: build
+      shell: bash
       run: cmake --build build --config $BUILD_TYPE
 
     - name: test
+      shell: bash
       run: cd build && ctest -C $BUILD_TYPE
