@@ -1,7 +1,10 @@
 set(CMAKE_FIND_PACKAGE_PREFER_CONFIG TRUE)
 
+#cmake_policy(SET CMP0077 OLD)
+#set(HUNTER_STATUS_DEBUG ON)
+
 include(FetchContent)
-FetchContent_Declare(SetupHunter GIT_REPOSITORY https://github.com/cpp-pm/gate GIT_TAG "master") # 0.23.262   "2fea25c8557f3c86502830d4b7d2c7445a043c7b"
+FetchContent_Declare(SetupHunter GIT_REPOSITORY https://github.com/cpp-pm/gate) # GIT_TAG "master") # "2fea25c8557f3c86502830d4b7d2c7445a043c7b"
 
 set(HUNTER_Boost_COMPONENTS test) 
 set(HUNTER_pcre2_CMAKE_ARGS
