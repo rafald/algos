@@ -3,35 +3,23 @@ name: C/C++ CI std
 on: [push]
 
 jobs:
-  build-ubuntu:
-
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v1
-    - name: configure
-      run: mkdir build && cd build && cmake -DCMAKE_CXX_FLAGS="-Werror" ..
-    - name: build
-      run: cmake --build build
-    - name: test
-      run: cd build && ctest
-
-  build-windows:
+  build:
 
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, windows-2016]
+        os: [ubuntu-latest, windows-latest, windows-2016]
     
     steps:
-    - uses: actions/checkout@v1
+    - name: Cache Hunter
+      uses: actions/checkout@v2
         
     - name: Cache Hunter
       uses: actions/cache@v2
       env:
         cache-name: cache-hunter
       with:
-        # hunteer cache files are stored in `~/.hunter` on Linux/macOS
+        # hunter cache files are stored in `~/.hunter` on Linux/macOS
         path: ~/.hunter/
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/CMakeLists.txt') }}
         restore-keys: |

@@ -3,7 +3,7 @@ name: C/C++ CI nicledomaS
 on: [push]
 
 jobs:
-  ubuntu-build:
+  build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
