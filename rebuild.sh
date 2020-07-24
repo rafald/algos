@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+set -ex
 
 THIS_DIR=$(realpath $(dirname $0))
 
