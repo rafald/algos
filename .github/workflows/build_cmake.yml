@@ -1,5 +1,5 @@
-name: CMake
-on: C/C++ CI v2
+name: C/C++ CI v2
+on: push
 env:
   BUILD_TYPE: Release # Release, Debug, RelWithDebInfo, etc.
 jobs:
