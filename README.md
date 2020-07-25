@@ -1,4 +1,4 @@
-C++ project demonstrating usage of Hunter package manager together with CMake builder.
+# Github continuous integration (via github actions) of tiny C++ project using hunter package manager with cmake builder
 
 Only CMake is prerequisite. Hunter is downloaded by CMake.
 
