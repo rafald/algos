@@ -1,4 +1,4 @@
-name: C/C++ CI std
+name: C/C++ CI
 on: [push]
 env:
   BUILD_TYPE: Release # Release, Debug, RelWithDebInfo, etc.
