@@ -12,5 +12,5 @@ cmake --build $THIS_DIR/build --config Debug --target all -- -j 10
 
 cd $THIS_DIR/build
 # the following option does notwork with target test:  --build $THIS_DIR/build
-/usr/bin/ctest --build $THIS_DIR/build --config Debug --target test --output-on-failure -- -j 10
+ctest --build $THIS_DIR/build --config Debug --target test --output-on-failure -- -j 10
 cd ..
