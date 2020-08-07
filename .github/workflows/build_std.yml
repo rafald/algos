@@ -25,9 +25,12 @@ jobs:
           ${{ matrix.os }}-build-
           ${{ matrix.os }}-
     
+    - name: ninja
+      uses: seanmiddleditch/gha-setup-ninja@master
+
     - name: configure
       shell: bash
-      run: mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE=$BUILD_TYPE # -DHUNTER_STATUS_DEBUG
+      run: cmake -Bbuild -H. . -DCMAKE_BUILD_TYPE=$BUILD_TYPE # -DHUNTER_STATUS_DEBUG
 
     - name: build
       shell: bash

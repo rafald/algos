@@ -34,8 +34,9 @@ enable_testing()
 
 find_package(GTest CONFIG REQUIRED) 
 
+
 add_executable(lower_bound_test test/lower_bound_test.cpp)
-target_link_libraries(lower_bound_test PRIVATE GTest::gtest_main)
+target_link_libraries(lower_bound_test PRIVATE GTest::gmock_main)
 add_test(lower_bound lower_bound_test)
 
 add_executable(topo_sort_test test/topo_sort_test.cpp)

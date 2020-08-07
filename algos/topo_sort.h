@@ -10,7 +10,6 @@ namespace algos {
 
 template <class Int>	
 using graph_t = std::multimap< Int, Int>;
-//topo_sort(std::unordered_multimap< int, int> adj) { 
 
 // Adjacency List, directed, acyclic
 // continuous ids for nodes starting from 0 - Int()

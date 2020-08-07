@@ -1,7 +1,7 @@
 #include <iostream>
 #include <array>
 
-#include "gtest/gtest.h"
+#include "gmock/gmock.h"
 
 #include "algos/utils.h" //TODO private header
 #include "algos/lower_bound.h"
@@ -26,5 +26,15 @@ namespace algos { namespace {
     std::array<char,10> data{ "ab" "defghij" }; data[9]='k';
     EXPECT_EQ(*algos::lower_bound(data.begin(), data.end(), 'd') , 'd');
     EXPECT_EQ(*algos::lower_bound(data.begin(), data.end(), 'c') , 'd');
+  }
+  TEST(sandbox, matchers)
+  {
+    using ::testing::ElementsAreArray;
+    using ::testing::UnorderedElementsAreArray;
+    using ::testing::Not;
+    std::array<char,10> data{ "ab" "defghij" };
+    //ON_CALL()
+    EXPECT_THAT(data, Not(ElementsAreArray("abc")) );
+    EXPECT_THAT(data, ElementsAreArray("abdefghij") );
   }
 }} // namespace
